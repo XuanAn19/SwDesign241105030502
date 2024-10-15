@@ -1,0 +1,19 @@
+#Class Diagram
+
+![Class diagram](https://www.planttext.com/api/plantuml/png/h5FBJiCm4BpxAwoS02a7hXM7qWYXIdr9bRWlpYfOEDx8tb0YuCiuy4dy0dQRjYuLb0CtxsfcP-nPVxv_33s3uxOsGlX7RQKZZqAmPeDo0IwqAZa52nNMQ5akEyzO2w4CUBy5J8ZbYv1IZWEYW0QKvYxMJwHBEM_GtWBZsVckLPYWqlVUjiFky46heBgUj6GNbITQeVMuC06xOqVLPDZDi-PqJczgsQIkOZLhwtjqiJCYCWXMZlrSgRRHMExfqTQ6jtF_tNcgLe3xrN7VdbA99gaBCkJ-UgCfCJdLdNgS_v0QwMET-SgYcq6TYemSsFBqq6H1iijCNkHjayki1jjbQKw3OB9ko6lMP7yWXLECvX0gqh0ZXFAyf9NDDuH-fGRokgeSLh3cRFViwdK3ZH4Emf8yeDCCLk4nOX_02M3_V8SeCKHRhd-O-0800F__0m00)
+
+#Pack - Use case Diagram
+
+
+![Use diagram](https://www.planttext.com/api/plantuml/png/F4yx3eCm3DtVAToj3D0zGmM2iMgxS00Bh2W2WfI4gUh9ElH8lK8DIBp1ijzFyk_pBMFYa9Pf1EBWF8Kv2f1S6eMUt0riXN9ger3DEXh7Dl0484YNs5krcTjiDVa2ASxRaUrx7OIJq8KQ6KKNhGaPSQIwQV46p4eOWgb79puPcAgVd3V0Ab2UNu--tK55SL1awFuuAR25ThSMhqArf9as6r2Ax_M_Fm000F__0m00)
+
+
+#Component
+![Component](https://www.planttext.com/api/plantuml/png/T95D2i9038NtEKLmfGkl88KA8YW8HJV5HQon3dPcoamKH3oP2u_a5UnefLKiPFNolKT-7hTxv8MS77K1u0_AeBEU0KH9mRWWLqavpibGpfgDO7BsmXhxiTMbDK4PAyeTwG50ITcXuh3NwUlX1H2hIfUU7KwDiDjHnciS3aUOrhwPbOJTIGMzavsGy8UgC__ON-YAzoeh-2kpYwtrf6mQ4FZVZ1Sy9g4D-U_8jlK72rHxxcQJs1fnjdXVQGrNW8ZDDdpb2G00__y30000)
+
+<p>Create Class <code>Student</code></p>
+---Class Student{
+  private String id;
+  Private String name;
+}
+
