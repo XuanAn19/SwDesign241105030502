@@ -1,0 +1,115 @@
+# LAB 2: PHÂN TÍCH CÁC CA SỬ DỤNG TRONG PAYROLL SYSTEM
+
+## 1. Ca sử dụng: Tạo Báo cáo Hành chính (Create Administrative Report)
+
+### a. Các lớp phân tích
+- **Lớp Boundary**: AdministrativeReportInterface, ReportSelectionForm
+- **Lớp Controller**: CreateReportController
+- **Lớp entities**: Report
+
+### b. Biểu đồ Sequence
+![CreateAdministrativeReport](https://www.planttext.com/api/plantuml/png/LOj13W8m4Dxv52Nu6xkwZGvSDo45i-QlA3bKTwwJYtL2wrmn_hjbpmchAT9bHoJkXxFEJTGJYmJwHl9oYoBe-8xtB5QxFywxWnb-IkJv0ydnHh5U-TSkDJTAN40pAZ5F32INmcpgVXwb0l4BGhgtgz5lh2gNf5U-X5wph3a_oZ0Ug1N5Ne9V9tMJc)
+
+### c. Nhiệm vụ của từng lớp phân tích:
+- **AdministrativeReportInterface**:
+  + Cung cấp giao diện cho người dùng chọn các tùy chọn báo cáo cần tạo (báo cáo lương, báo cáo nhân viên, báo cáo thuế, vv).
+  + Cho phép người dùng chọn các tham số như ngày, loại báo cáo và các tiêu chí lọc.
+  + Hiển thị thông báo khi báo cáo được tạo thành công hoặc nếu có lỗi trong quá trình tạo báo cáo.
+- **ReportSelectionForm**:
+  + Hiển thị biểu mẫu để người dùng chọn các tham số báo cáo.
+  + Cung cấp các tùy chọn cho người dùng để nhập các thông tin cần thiết cho báo cáo.
+  + Thu thập và chuyển thông tin đã nhập tới CreateReportController.
+- **CreateReportController**:
+  + Xử lý các yêu cầu từ AdministrativeReportInterface và ReportSelectionForm.
+  + Truy xuất và xử lý dữ liệu để tạo ra báo cáo theo các tham số đã chọn.
+  + Gửi báo cáo đã tạo tới người dùng hoặc hệ thống lưu trữ.
+  + Hiển thị thông báo khi báo cáo được tạo thành công hoặc gặp lỗi.
+- **Report**:
+  + Lưu trữ thông tin về báo cáo được tạo, bao gồm các tham số, dữ liệu và kết quả báo cáo.
+  + Cung cấp phương thức để truy xuất và tạo báo cáo từ cơ sở dữ liệu hoặc hệ thống.
+
+### d. Một số thuộc tính và phương thức của các lớp phân tích:
+- **AdministrativeReportInterface**:
+  + `selectedReportType`: Loại báo cáo mà người dùng chọn (ví dụ: báo cáo lương, báo cáo thuế).
+  + `reportDate`: Ngày cho báo cáo.
+  + `chooseReport()`: Cho phép người dùng chọn loại báo cáo và tham số.
+  + `showMessage(String message)`: Hiển thị thông báo cho người dùng.
+- **ReportSelectionForm**:
+  + `startDate`: Ngày bắt đầu cho báo cáo.
+  + `endDate`: Ngày kết thúc cho báo cáo.
+  + `reportType`: Loại báo cáo (lương, thuế, vv).
+  + `displayForm()`: Hiển thị biểu mẫu chọn tham số báo cáo.
+  + `getReportParameters()`: Thu thập và trả về các tham số báo cáo.
+- **CreateReportController**:
+  + `generateReport()`: Tạo báo cáo dựa trên các tham số từ ReportSelectionForm.
+  + `sendReportToUser()`: Gửi báo cáo đã tạo cho người dùng.
+  + `validateReportParameters()`: Kiểm tra tính hợp lệ của tham số báo cáo.
+- **Report**:
+  + `reportId`: ID của báo cáo.
+  + `reportData`: Dữ liệu của báo cáo.
+  + `generateReport()`: Tạo báo cáo từ các dữ liệu và tham số đã cung cấp.
+  + `saveReport()`: Lưu báo cáo vào hệ thống hoặc cơ sở dữ liệu.
+
+### e. Mối quan hệ giữa các lớp
+- **AdministrativeReportInterface**: Giao diện cho phép người dùng chọn loại báo cáo và tham số báo cáo cần tạo.
+- **ReportSelectionForm**: Cung cấp giao diện nhập liệu cho người dùng để chọn tham số báo cáo.
+- **CreateReportController**: Xử lý các yêu cầu từ AdministrativeReportInterface và ReportSelectionForm để tạo báo cáo và gửi kết quả về cho người dùng.
+- **Report**: Là thực thể lưu trữ thông tin báo cáo được tạo, bao gồm dữ liệu báo cáo và các tham số.
+
+---
+
+## 2. Ca sử dụng: Cập nhật Thông tin Nhân viên (Update Employee Information)
+
+### a. Các lớp phân tích
+- **Lớp Boundary**: EmployeeInterface, EmployeeUpdateForm
+- **Lớp Controller**: UpdateEmployeeController
+- **Lớp entities**: Employee
+
+### b. Biểu đồ Sequence
+![UpdateEmployeeInformation](https://www.planttext.com/api/plantuml/png/LP4nRW8m4DxvFWVXnMiPkpNOhtm6n66i5YH9jGMtHiFWoyz7rk2ebPUUe9RquCzB2Yy_iK9s5LPns4dpBihXwp_HX-1ig6HnAfv0wXGVQyCjo_n5Y5IJoxNkHOZt6V_AHh8d8lz56TRZlxhbqVEX1zzvFiZ8hxdOivn4wW5ilWeOqql6kHzrFFjdKp_wDN9ieJr9qWVbuA)
+
+### c. Nhiệm vụ của từng lớp phân tích:
+- **EmployeeInterface**:
+  + Cung cấp giao diện cho quản trị viên hoặc người dùng để tìm kiếm và cập nhật thông tin nhân viên.
+  + Cho phép tìm kiếm nhân viên bằng ID hoặc tên và hiển thị các thông tin hiện tại của nhân viên.
+  + Hiển thị thông báo khi cập nhật thành công hoặc có lỗi.
+- **EmployeeUpdateForm**:
+  + Hiển thị biểu mẫu để người dùng nhập thông tin mới cho nhân viên.
+  + Thu thập các thông tin đã nhập từ người dùng và chuyển cho UpdateEmployeeController.
+  + Hiển thị các trường thông tin nhân viên cần cập nhật, như tên, lương, chức vụ, vv.
+- **UpdateEmployeeController**:
+  + Nhận thông tin từ EmployeeUpdateForm và xác thực tính hợp lệ.
+  + Cập nhật thông tin nhân viên trong cơ sở dữ liệu.
+  + Thực hiện các thao tác cần thiết để cập nhật nhân viên, chẳng hạn như tính toán lại lương hoặc cập nhật trạng thái.
+  + Gửi thông báo cập nhật thành công hoặc thất bại.
+- **Employee**:
+  + Lưu trữ thông tin về nhân viên, bao gồm tên, ID, lương, chức vụ, vv.
+  + Cung cấp phương thức để cập nhật thông tin nhân viên trong cơ sở dữ liệu.
+
+### d. Một số thuộc tính và phương thức của các lớp phân tích:
+- **EmployeeInterface**:
+  + `employeeId`: ID của nhân viên cần cập nhật.
+  + `searchEmployee()`: Tìm kiếm nhân viên trong hệ thống.
+  + `showMessage(String message)`: Hiển thị thông báo thành công hoặc lỗi.
+- **EmployeeUpdateForm**:
+  + `employeeName`: Tên nhân viên.
+  + `employeeSalary`: Lương của nhân viên.
+  + `employeePosition`: Chức vụ của nhân viên.
+  + `displayForm()`: Hiển thị biểu mẫu nhập thông tin.
+  + `getUpdatedEmployeeInfo()`: Thu thập thông tin đã nhập từ người dùng.
+- **UpdateEmployeeController**:
+  + `updateEmployeeInfo()`: Cập nhật thông tin nhân viên trong cơ sở dữ liệu.
+  + `validateEmployeeInfo()`: Kiểm tra tính hợp lệ của thông tin cập nhật.
+  + `sendUpdateConfirmation()`: Gửi thông báo cập nhật thành công.
+- **Employee**:
+  + `employeeId`: ID của nhân viên.
+  + `employeeName`: Tên nhân viên.
+  + `salary`: Lương của nhân viên.
+  + `position`: Chức vụ của nhân viên.
+  + `updateEmployee()`: Cập nhật thông tin nhân viên trong cơ sở dữ liệu.
+
+### e. Mối quan hệ giữa các lớp
+- **EmployeeInterface**: Giao diện giúp người dùng tìm kiếm và cập nhật thông tin nhân viên.
+- **EmployeeUpdateForm**: Cung cấp giao diện nhập liệu cho người dùng để cập nhật thông tin nhân viên.
+- **UpdateEmployeeController**: Xử lý các yêu cầu từ EmployeeInterface và EmployeeUpdateForm để cập nhật thông tin nhân viên.
+- **Employee**: Lưu trữ thông tin về nhân viên và cung cấp phương thức để cập nhật các thông tin này.
