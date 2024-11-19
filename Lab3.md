@@ -26,8 +26,10 @@
              + IPrintService chuyển tài liệu đến PrintService để xử lý.
 
    -  Biểu đồ ngữ cảnh của hệ thống con ProjectManagementDatabase subsystems
+     
 ![Diagram](https://planttext.com/api/plantuml/png/n5DBRi8m4Dtx52Cs1QdX0CX22EWYYqfLMNKv94DmSUp8dWXGsvDrqIFr2dM8Gp-4TRsmRCzxC-_Do9_l7pFFwBWkDJmu-qmPtwF1Waeol4J6DNfQrMj_z4oby3jbAdHOWWj8D8KcU14GrXopNU5iRVA5rTP9wJiILCuUZjCfF97MTY_UXBY1XJNih8Q5Hkz5rknT_HZIv43AhBq4Tbi6e3p9YzZXg4sN6YQtmOo4wawGNlgPdxDiYBDj13GsXrLxJfSmwOIaor54rrMEtDLSCNBj-mctu4_HyBPYfqmHzPqxs40Fnz-6BniEVUtx9-btXXKh-ZEam9MIcb2G5aDjzf_lWVv86bbPuxUgyk9on4bkzoQPzazh0eEJM_A09ezUF8GT1wAN8L_7u-jzxUVO9FcsTHtIsXCpCdduBU8B003__mC0)
-   - Giari thích thành phần biểu đồ trên
+
+   - Giải thích thành phần biểu đồ trên
           + Mục đích: Quản lý dữ liệu và trạng thái của các dự án.
           + Thành phần:
              + ProjectController: Lớp điều khiển, thực thi phương thức manageProject() để quản lý dự án.
