@@ -42,8 +42,10 @@
              + ProjectController gọi IProjectManagementDB để lấy hoặc cập nhật dữ liệu dự án.
              + Interface này tương tác với ProjectManagementDatabase để thực hiện công việc.
 # 2. Analysis class to design element map
-     Dưới đây là ánh xạ các lớp phân tích từ sơ đồ trên sang các phần tử thiết kế của hệ thống:
+
   ![image](https://github.com/user-attachments/assets/7244fa5f-2876-4a63-a838-1cfd56d520f6)
+
+
 #3. Analysis class to design element map
 ### Mappings
 - **LoginForm** -> `LoginForm`
@@ -74,4 +76,6 @@
 | Paycheck               | Business Services::Payroll Artifacts      |
 
 #5. Architectural layers and their dependencies
+
+
 ![diagram](https://www.planttext.com/api/plantuml/png/V5HBJiGm3Dtd55OthBW02yHV804Q0HS8gHaYKZiuAQX2d8m5H-8AE4Ddffqfi-d7By_FzhFoy_LzbBALt3R1f1TFqOfj8EKke3x5kmqaUCBSHGIM_Cp6HEjUx1oXcWacf6opPu9hsw5Ky64073UHIH6uvhcd2vPc5BsndiwR6BX3N82VWwJ7CGRlTkISsKuuX5EcNDue8_J1D-Yir0DucFsaJTfDId2FykOTffqQ_Q4HTClPF_K5Jk5t67LEIsIeVSQDDhvJS2QiDIKUzxISrJbbdxjHpYjw4gkcjMgQu7JkCvljeqtuNxN9PvP5sZqu5k7t18BnprjFSwWn8jL8pcCoAqTXV_zmsmiuWEhIKXrqictIVrsYDbTcq_85Uzkh_-ZREWFrlg_2xUUdxFY7LMP2f70dR1oAqm1EA_tbmO7uoh72FcNre5U6e9DobPaIAlongOLzWTaz0_PngDMsoepMQK7SiBCmImXUMvHkLUgwhi9PsroEt-k7zkXAjMkL7jyXKKBA8a9NkgcCETB5A9V5Bm000F__0m00)
