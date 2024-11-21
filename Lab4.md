@@ -9,7 +9,7 @@ Tác nhân: Nhân viên, người quản trị hệ thống
 2. `ProjectManagementDatabase`: Lưu trữ
 3. `Timecard`: Chứa dữ liệu số giờ làm việc.
 
-   ![Senquence Diagram]('https://www.planttext.com/api/plantuml/png/Z59BJWCn3Dtd5Bu05vW5gbH6ObKgsXx0IWoAb4cYs5EQitN1aRW2QGk4WKmXIp-_Jso_7LyNB9Xa79n2BI51FqGNya1UL2o0rJQY5zZQWJGciyaiD4oWDUOKd5kYqwD3iS6tcqwQ7uYgBd1p-qEyWuT8_gkefcYh_v4aMTeJz0VBOlrp9QEhsIymAoZlj-YEANLmPpawp0qbSaomefSgjqo4GkPVUj-9Py89RlrbW_kfZI9lr5ntxwK0zs5Ct9ZJt6Ows4LJebUFgsckR6BUuSoys9W_5EfXTB0AOf_oPnNMAMXYBaDUb36KAtq7003__mC0')
+   ![Senquence Diagram](https://www.planttext.com/api/plantuml/png/Z59BJWCn3Dtd5Bu05vW5gbH6ObKgsXx0IWoAb4cYs5EQitN1aRW2QGk4WKmXIp-_Jso_7LyNB9Xa79n2BI51FqGNya1UL2o0rJQY5zZQWJGciyaiD4oWDUOKd5kYqwD3iS6tcqwQ7uYgBd1p-qEyWuT8_gkefcYh_v4aMTeJz0VBOlrp9QEhsIymAoZlj-YEANLmPpawp0qbSaomefSgjqo4GkPVUj-9Py89RlrbW_kfZI9lr5ntxwK0zs5Ct9ZJt6Ows4LJebUFgsckR6BUuSoys9W_5EfXTB0AOf_oPnNMAMXYBaDUb36KAtq7003__mC0)
    
 #### Mô tả hành vi lưu trữ
 Hệ thống thẻ chấm công sẽ lưu trữ những thông tin sau cho mỗi nhân viên:
@@ -48,7 +48,7 @@ Hệ thống thẻ chấm công sẽ lưu trữ những thông tin sau cho mỗi
 1.  `PayRollController`: Quản lý việc tính toán lương
 2.  `Paycheck`: Thể hiện chi tiết tiền lương sau khi tính toán.
 
-![Senquence Diagram]('https://www.planttext.com/api/plantuml/png/Z5BBQWCn3BphAqGkEONSUoXfanPo2qdx0S8h4X4_jfQsPR-jXtvIVw5UQ3RTJGC1Wn6QyMX6_lxyMgXHjYPuqAD4p4aPmCGyusH3RKxUuoOdnwguuxU6esDS2UqpXGd055yEebWEeKhSUvvvYOmkXS3H0EPJE2D2uqs6WEaSW9obZ0zLa2XgcKe5TPbAdDGK3N_dMAPetSt3xYF5uwvLum3bGR6smxi3k-EfVWgrJoqNOmCDdDrVFertkEiImP5vk4HUeM_Pil0xzxAu8gFR-Klohl5atFku8hu-Eo-qqv8Aj0jMuMzxLk03z7FA7vIh4xeCNLQh1YFEIA87QrdaKE1_BoF6pHcyrbKNG9_WbbtAbG8iE5Rbi_u0003__mC0')
+![Senquence Diagram](https://www.planttext.com/api/plantuml/png/Z5BBQWCn3BphAqGkEONSUoXfanPo2qdx0S8h4X4_jfQsPR-jXtvIVw5UQ3RTJGC1Wn6QyMX6_lxyMgXHjYPuqAD4p4aPmCGyusH3RKxUuoOdnwguuxU6esDS2UqpXGd055yEebWEeKhSUvvvYOmkXS3H0EPJE2D2uqs6WEaSW9obZ0zLa2XgcKe5TPbAdDGK3N_dMAPetSt3xYF5uwvLum3bGR6smxi3k-EfVWgrJoqNOmCDdDrVFertkEiImP5vk4HUeM_Pil0xzxAu8gFR-Klohl5atFku8hu-Eo-qqv8Aj0jMuMzxLk03z7FA7vIh4xeCNLQh1YFEIA87QrdaKE1_BoF6pHcyrbKNG9_WbbtAbG8iE5Rbi_u0003__mC0)
 #### Mô tả hành vi lưu trữ
 1. Employee Information:Name, Salary, Bank Account Information
 2. Payroll Information:Paycheck ID, Employee ID, Amount, Date of Issue,
