@@ -2,29 +2,33 @@
 
 ## 1. Distribute Subsystem Behavior to Subsystem Elements
 
-Hệ thống được chia thành 4 hệ thống con chính:
+Hệ thống được chia thành 2 hệ thống con chính dựa trên 2 ca sử dụng từ Lab 4:
 
 ---
 
 ### a) Timecard Subsystem
 #### **Chức năng chính:**
-- Quản lý giờ làm việc và trạng thái thẻ chấm công.
+- Quản lý thông tin giờ làm việc và trạng thái thẻ chấm công.
 
 #### **Thành phần chính:**
 1. **`TimecardController`**:
-   - Quản lý logic nghiệp vụ liên quan đến thẻ chấm công, bao gồm: 
-     - Chấm công khi vào và ra.
+   - Xử lý logic nghiệp vụ liên quan đến:
+     - Chấm công khi vào/ra.
      - Tính tổng số giờ làm việc.
+     - Cập nhật trạng thái thẻ chấm công.
 2. **`Timecard`**:
    - Thực thể lưu trữ thông tin giờ làm việc, gồm:
-     - ID nhân viên, ngày giờ vào/ra, tổng giờ làm việc.
-3. **`ProjectManagementDatabase`**:
-   - Lưu trữ thông tin danh sách dự án liên quan.
+     - ID nhân viên.
+     - Ngày giờ vào/ra.
+     - Tổng số giờ làm việc.
+     - Yêu cầu nghỉ phép và trạng thái.
+3. **`TimecardDatabase`**:
+   - Cơ sở dữ liệu lưu trữ thông tin thẻ chấm công.
 
 #### **Mô tả chi tiết:**
-- Nhân viên sử dụng hệ thống để chấm công vào và ra.
-- Thông tin giờ làm việc được tính toán tự động và lưu trữ trong cơ sở dữ liệu.
-- Hệ thống hỗ trợ nhân viên gửi yêu cầu nghỉ phép, đồng thời cập nhật trạng thái thẻ chấm công khi cần.
+- **Khi bắt đầu ca làm việc:** Nhân viên chấm công, hệ thống ghi nhận thời gian vào.
+- **Khi kết thúc ca làm việc:** Nhân viên chấm công ra, hệ thống tính toán tổng giờ làm việc và lưu vào cơ sở dữ liệu.
+- **Yêu cầu nghỉ phép:** Nhân viên gửi yêu cầu, trạng thái nghỉ phép được quản lý bởi người quản trị hệ thống.
 
 ---
 
@@ -34,52 +38,25 @@ Hệ thống được chia thành 4 hệ thống con chính:
 
 #### **Thành phần chính:**
 1. **`PayrollController`**:
-   - Quản lý logic nghiệp vụ tính toán lương dựa trên thông tin giờ làm việc và các yếu tố khác.
+   - Xử lý nghiệp vụ liên quan đến:
+     - Tính toán lương dựa trên giờ làm việc và các yếu tố khác (OT, nghỉ phép, v.v.).
+     - Tạo phiếu lương (Paycheck).
+     - Giao tiếp với hệ thống ngân hàng để thực hiện thanh toán.
 2. **`Paycheck`**:
-   - Thực thể chứa thông tin phiếu lương:
-     - ID phiếu lương, ID nhân viên, số tiền, ngày phát hành.
+   - Thực thể lưu trữ thông tin phiếu lương:
+     - ID phiếu lương.
+     - ID nhân viên.
+     - Số tiền.
+     - Ngày phát hành.
 3. **`BankSystemProxy`**:
-   - Kết nối với hệ thống ngân hàng để thực hiện thanh toán.
+   - Kết nối với hệ thống ngân hàng để gửi tiền lương vào tài khoản nhân viên.
 4. **`PayrollDatabase`**:
-   - Lưu trữ thông tin chi tiết về lương, hỗ trợ cho báo cáo và tra cứu.
+   - Cơ sở dữ liệu lưu trữ thông tin chi tiết về phiếu lương.
 
 #### **Mô tả chi tiết:**
-- PayrollController lấy dữ liệu từ Timecard Subsystem và Employee Management Subsystem để tính toán lương.
-- Lương được gửi qua ngân hàng hoặc in phiếu lương tùy thuộc vào cấu hình.
-- Dữ liệu phiếu lương được lưu trữ trong PayrollDatabase để hỗ trợ cho các báo cáo tài chính.
-
----
-
-### c) Employee Management Subsystem
-#### **Chức năng chính:**
-- Quản lý thông tin nhân viên và trạng thái làm việc.
-
-#### **Thành phần chính:**
-1. **`Employee`**:
-   - Thực thể lưu trữ thông tin nhân viên, gồm:
-     - ID, tên, thông tin ngân hàng, mức lương cơ bản.
-2. **`EmployeeDatabase`**:
-   - Lưu trữ thông tin nhân viên, hỗ trợ việc cập nhật và tra cứu.
-
-#### **Mô tả chi tiết:**
-- Thông tin nhân viên được cập nhật theo thời gian.
-- Cung cấp thông tin nhân viên cho các hệ thống con khác, bao gồm:
-  - Timecard Subsystem: để xác định ID nhân viên.
-  - Payroll Processing Subsystem: để lấy dữ liệu lương cơ bản.
-
----
-
-### d) Scheduler Subsystem
-#### **Chức năng chính:**
-- Kích hoạt quy trình tính lương theo lịch.
-
-#### **Thành phần chính:**
-1. **`SystemClock`**:
-   - Định thời gian và tự động kích hoạt quy trình "Run Payroll".
-
-#### **Mô tả chi tiết:**
-- Scheduler Subsystem hoạt động độc lập, đảm bảo Payroll Processing Subsystem được kích hoạt tự động theo lịch định trước.
-- Đảm bảo tính chính xác và nhất quán trong quy trình tính lương.
+- **Khi kích hoạt quy trình trả lương:** PayrollController lấy thông tin giờ làm việc từ Timecard Subsystem và thông tin nhân viên từ Employee Database.
+- Hệ thống tính toán lương và tạo phiếu lương cho từng nhân viên.
+- Tiền lương được gửi qua hệ thống ngân hàng, thông tin phiếu lương được lưu trữ trong PayrollDatabase.
 
 ---
 
@@ -87,20 +64,20 @@ Hệ thống được chia thành 4 hệ thống con chính:
 
 | **Hệ Thống Con**               | **Phụ Thuộc Vào**                                                        |
 |---------------------------------|---------------------------------------------------------------------------|
-| **Timecard Subsystem**          | Employee Management Subsystem để lấy thông tin nhân viên.                |
-| **Payroll Processing Subsystem**| - Employee Management Subsystem để lấy danh sách nhân viên và mức lương. |
-|                                 | - Timecard Subsystem để lấy thông tin giờ làm việc của nhân viên.         |
-| **Scheduler Subsystem**         | Không phụ thuộc, nhưng kích hoạt Payroll Processing Subsystem.           |
+| **Timecard Subsystem**          | Employee Management Database để lấy thông tin nhân viên.                 |
+| **Payroll Processing Subsystem**| - Timecard Subsystem để lấy thông tin giờ làm việc.                       |
+|                                 | - Employee Management Database để lấy thông tin nhân viên và mức lương.  |
 
 ---
 
 ## 3. Checkpoints
 
 1. **Phân chia hợp lý**: 
-   - Các hệ thống con được thiết kế rõ ràng với chức năng độc lập, đảm bảo tính đơn nhiệm (Single Responsibility).
+   - Hệ thống được chia thành 2 subsystem chính dựa trên ca sử dụng.
+   - Các chức năng được phân bổ rõ ràng và logic.
 2. **Phụ thuộc rõ ràng**: 
-   - Mối quan hệ giữa các hệ thống con được xác định cụ thể, tránh các phụ thuộc không cần thiết.
+   - Timecard Subsystem và Payroll Processing Subsystem có mối quan hệ phụ thuộc rõ ràng với các cơ sở dữ liệu.
 3. **Tính mở rộng**:
-   - Có thể dễ dàng thêm mới hoặc thay đổi chức năng mà không ảnh hưởng lớn đến toàn bộ hệ thống.
+   - Hệ thống con có thể dễ dàng mở rộng để bổ sung các chức năng mới (như quản lý OT hoặc tích hợp hệ thống báo cáo tài chính).
 
 ---
