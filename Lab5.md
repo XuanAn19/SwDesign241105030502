@@ -1,9 +1,6 @@
-# Lab5
-
-# Payroll System Subsystem Design
+# Lab5 : Payroll System Subsystem Design
 ## 1. Distribute Subsystem Behavior to Subsystem Elements
-Hệ thống được chia thành 4 hệ thống con chính, mỗi hệ thống con đảm nhiệm các chức năng cụ thể:
-
+Hệ thống được chia thành 4 hệ thống con chính:
 **a) Timecard Subsystem**
 - Chức năng chính: Quản lý giờ làm việc và trạng thái thẻ chấm công.
 - Thành phần chính:
@@ -49,7 +46,7 @@ Mối quan hệ phụ thuộc giữa các hệ thống con:
   - Employee Management Subsystem để lấy danh sách nhân viên.
   - Timecard Subsystem để lấy thông tin giờ làm việc.
 - Scheduler Subsystem không phụ thuộc vào các hệ thống con khác nhưng kích hoạt Payroll Processing Subsystem.
-## 4. Checkpoints
+## 3. Checkpoints
 - **Phân chia hợp lý**: Mỗi hệ thống con có trách nhiệm riêng biệt, với các thành phần được phân bổ rõ ràng.
 - **Phụ thuộc rõ ràng**: Mối quan hệ giữa các hệ thống con được thể hiện rõ qua sơ đồ và các phụ thuộc cụ thể.
 - **Tính mở rộng**: Các hệ thống con có thể mở rộng hoặc thay đổi mà không ảnh hưởng đến toàn bộ hệ thống.
